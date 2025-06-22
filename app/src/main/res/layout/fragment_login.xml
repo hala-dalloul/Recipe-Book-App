@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/white"
+    tools:context=".b_RegisterToTheApp.LoginFragment">
+
+    <ImageView
+        android:id="@+id/pan_logo_icon_FL"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/pan_logo_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/app_name_recipe_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recipe Book"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/pan_logo_icon_FL"
+        app:layout_constraintEnd_toEndOf="@id/pan_logo_icon_FL"
+        app:layout_constraintStart_toStartOf="@+id/pan_logo_icon_FL"
+        app:layout_constraintTop_toTopOf="@+id/pan_logo_icon_FL"
+        app:layout_constraintVertical_bias="0.88" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailUserLayoutFL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:pointerIcon="hand"
+        app:boxStrokeErrorColor="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pan_logo_icon_FL">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailUserEditTextFL"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Your Email"
+            android:inputType="textEmailAddress"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordUserLayoutFL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:boxStrokeErrorColor="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailUserLayoutFL">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordUserEditTextFL"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Your Password"
+            android:inputType="textPassword"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/passwordUserLayoutFL"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/rememberMeLayoutFL">
+        <CheckBox
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/rememberMeCheckBoxFL"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="remember me  "
+            android:textSize="16sp"
+            android:id="@+id/rememberMeTextFL"
+            />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/singInButtonFL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:background="@drawable/shape_register_button"
+        android:text="SING IN"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintVertical_bias="0.28"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordUserLayoutFL" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordUserLayoutFL"
+        app:layout_constraintVertical_bias="0.94">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add new Account!"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/singUpButtonFL"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SING UP"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

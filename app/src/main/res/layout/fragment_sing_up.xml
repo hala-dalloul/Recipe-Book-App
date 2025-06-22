@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="20dp"
+    tools:context=".b_RegisterToTheApp.SingUpFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/activity_title_add_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Your Account"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageCardLayoutFS"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="25dp"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_title_add_account">
+
+            <ImageView
+                android:id="@+id/imageViewFS"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/boy_logo_icon" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/icon_camera_24"
+            app:layout_constraintBottom_toBottomOf="@id/imageCardLayoutFS"
+            app:layout_constraintEnd_toEndOf="@+id/imageCardLayoutFS"
+            app:layout_constraintStart_toEndOf="@+id/imageCardLayoutFS" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameUserLayoutFS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:pointerIcon="hand"
+            app:boxStrokeErrorColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageCardLayoutFS">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameUserEditTextFS"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Your Name"
+                android:inputType="textEmailAddress"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailUserLayoutFS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:pointerIcon="hand"
+            app:boxStrokeErrorColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameUserLayoutFS">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailUserEditTextFS"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Your Email"
+                android:inputType="textEmailAddress"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLayoutFS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:pointerIcon="hand"
+            app:boxStrokeErrorColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailUserLayoutFS">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditTextFS"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Your Password"
+                android:inputType="textPassword"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordConLayoutFS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:pointerIcon="hand"
+            app:boxStrokeErrorColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordLayoutFS">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordConEditTextFS"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Your Confirmed Password"
+                android:inputType="textPassword"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/spinnerCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#7A757F"
+            app:layout_constraintTop_toBottomOf="@id/passwordConLayoutFS">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerCountryList"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_margin="1dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:popupTheme="@color/orange"
+                android:background="@color/white"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/singUpButtonFS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:background="@drawable/shape_register_button"
+            android:text="SING UP"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCard"
+            app:layout_constraintVertical_bias="0.33" />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singUpButtonFS">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Have Old Account?"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/singInButtonFS"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SING IN"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

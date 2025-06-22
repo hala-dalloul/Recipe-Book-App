@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Recipe Book</string>
+    <string-array name="country_list">
+        <item>Palestine فلسطين</item>
+        <item>Egypt مصر</item>
+        <item>Jorden الأردن</item>
+        <item>Lebanon لبنان</item>
+        <item>Surya سوريا</item>
+        <item>Morocco المغرب</item>
+    </string-array>
+
+
+</resources>

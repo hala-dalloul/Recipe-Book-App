@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".a_SplashScreen.SplashActivity"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/pan_logo_iconAS"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:src="@drawable/pan_logo_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/app_name_recipe_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recipe Book"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/pan_logo_iconAS"
+        app:layout_constraintEnd_toEndOf="@id/pan_logo_iconAS"
+        app:layout_constraintStart_toStartOf="@id/pan_logo_iconAS"
+        app:layout_constraintTop_toTopOf="@+id/pan_logo_iconAS"
+        app:layout_constraintVertical_bias="0.88"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
