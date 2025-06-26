@@ -2,6 +2,7 @@ package com.example.recipebook.b_RegisterToTheApp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,9 @@ import android.widget.Toast;
 
 import com.example.recipebook.R;
 import com.example.recipebook.Utils;
+import com.example.recipebook.c_Home.HomeActivity;
 import com.example.recipebook.databinding.FragmentLoginBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +26,8 @@ public class LoginFragment extends Fragment {
   LoginFragmentEvent event;
   String userEmail;
   String userPassword;
+  SharedPreferences sharedPreferences;
+  SharedPreferences.Editor editor;
 
   @Override
   public void onAttach(@NonNull Context context) {
@@ -54,6 +59,20 @@ public class LoginFragment extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     FragmentLoginBinding binding = FragmentLoginBinding.inflate(inflater,container,false);
+
+    sharedPreferences = getActivity().getSharedPreferences(Utils.SP_KEY, Context.MODE_PRIVATE);
+    editor = sharedPreferences.edit();
+
+    boolean isRemembered = sharedPreferences.getBoolean(Utils.BOOLEAN_KEY, false);
+    if (isRemembered) {
+      String savedEmail = sharedPreferences.getString("email", "");
+      String savedPassword = sharedPreferences.getString("password", "");
+
+      binding.emailUserEditTextFL.setText(savedEmail);
+      binding.passwordUserEditTextFL.setText(savedPassword);
+      binding.rememberMeCheckBoxFL.setChecked(true);
+    }
+
     binding.singUpButtonFL.setOnClickListener(view -> {
       event.startSingUp();
     });
@@ -61,10 +80,20 @@ public class LoginFragment extends Fragment {
       HashMap<String,Object> information = new HashMap<>();
       userEmail =binding.emailUserEditTextFL.getText().toString();
       userPassword = binding.passwordUserEditTextFL.getText().toString();
+      boolean rememberMe = binding.rememberMeCheckBoxFL.isChecked();
       if(!userEmail.equals("")){
         if(userPassword.length() > 6){
           information.put(Utils.USER_EMAIL,userEmail);
           information.put(Utils.USER_PASSWORD,userPassword);
+          if (rememberMe) {
+            editor.putBoolean("rememberMe", true);
+            editor.putString("email", userEmail);
+            editor.putString("password", userPassword);
+            editor.apply();
+          } else {
+            editor.clear();
+            editor.apply();
+          }
           event.singInUser(information);
         }else{
           Toast.makeText(getActivity(), "Your Password is Short", Toast.LENGTH_SHORT).show();
