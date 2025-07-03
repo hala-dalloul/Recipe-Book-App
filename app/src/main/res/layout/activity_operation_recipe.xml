@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".d_AddEditRecipe.OperationRecipeActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleAO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Operation Recipe"
+            android:textColor="@color/orange"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/chooseImageOA"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/pan_logo_icon"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleAO" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/recipeTitleLayoutAO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:boxStrokeErrorColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chooseImageOA">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/recipeTitleAO"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Recipe Title"
+                android:inputType="text"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/recipeTimeLayoutAO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:boxStrokeErrorColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeTitleLayoutAO">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/recipeTimeAO"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Recipe Cook time"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/recipeYoutubeLinkLayoutAO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:boxStrokeErrorColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeTimeLayoutAO">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/recipeYoutubeLinkAO"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Youtube Link for Recipe"
+                android:inputType="textUri"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/addIngredientsTitleOA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Add Ingredients"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeYoutubeLinkLayoutAO" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutIngredientsAO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_layout"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addIngredientsTitleOA">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredientsRecyclerOA"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="@drawable/shape_layout"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/newIngredientsLayoutAO"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="55dp"
+                app:boxStrokeErrorColor="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ingredientsRecyclerOA">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/newIngredientsAO"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:hint="Add Current Ingredient"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/addIngredientsBtuOA"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_add_button"
+                android:text="+"
+                android:textAllCaps="false"
+                android:textColor="@color/orange"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="@+id/newIngredientsLayoutAO"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/newIngredientsLayoutAO"
+                app:layout_constraintTop_toTopOf="@+id/newIngredientsLayoutAO" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/addStepTitleOA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Add Steps"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutIngredientsAO" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutStepAO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_layout"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addStepTitleOA">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/stepRecyclerOA"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="@drawable/shape_layout"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/newStepLayoutAO"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="55dp"
+                app:boxStrokeErrorColor="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stepRecyclerOA">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/newStepAO"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:hint="Add Current Step"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/addStepBtuOA"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_add_button"
+                android:text="+"
+                android:textAllCaps="false"
+                android:textColor="@color/orange"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="@+id/newStepLayoutAO"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/newStepLayoutAO"
+                app:layout_constraintTop_toTopOf="@+id/newStepLayoutAO" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/ChooseCategoryOA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Choose Category"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutStepAO" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoryRecyclerOA"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/shape_layout"
+            android:padding="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ChooseCategoryOA" />
+
+        <Button
+            android:id="@+id/operationButtonOA"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="80dp"
+            android:text="Operation"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoryRecyclerOA" />
+
+        <TextView
+            android:id="@+id/chooseCategoryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose category"
+            android:textColor="@color/orange"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/categoryRecyclerOA"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
