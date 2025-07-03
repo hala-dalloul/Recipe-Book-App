@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".f_Profile.ProfileActivity">
+
+    <ImageButton
+        android:id="@+id/logOutButtonPA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:src="@drawable/icon_logout"
+        android:padding="10dp"
+        android:background="@drawable/shape_add_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/userCardPA"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="80dp"
+        android:padding="5dp"
+        android:background="@drawable/shape_user_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profileImageCardPA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="100dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/profileImagePA"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/boy_logo_icon" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/userNamePA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="User Name"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/profileImageCardPA"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/userEmailPA"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="User Email"
+            android:textSize="20sp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/userNamePA"
+            app:layout_constraintTop_toBottomOf="@id/userNamePA" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/userCardPA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="20dp"
+        android:background="#48000000"
+        />
+    <TextView
+        android:id="@+id/yourRecipesTitlePA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/userCardPA"
+        android:layout_marginTop="60dp"
+        android:text="Your Recipes"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/orange"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/yourRecipesTitlePA"
+        android:id="@+id/yourRecipesRecyclerPA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="25dp"/>
+    <Button
+        android:id="@+id/addFirstRecipeButton"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        app:layout_constraintTop_toTopOf="@id/yourRecipesRecyclerPA"
+        app:layout_constraintBottom_toBottomOf="@id/yourRecipesRecyclerPA"
+        app:layout_constraintStart_toStartOf="@id/yourRecipesRecyclerPA"
+        app:layout_constraintEnd_toEndOf="@id/yourRecipesRecyclerPA"
+        android:text="Add Your First Recipe"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:visibility="invisible"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
