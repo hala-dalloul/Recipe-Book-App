@@ -22,7 +22,7 @@
             android:exported="false" />
         <activity
             android:name=".d_AddEditRecipe.OperationRecipeActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".c_Home.HomeActivity"
             android:exported="false" />

@@ -1,5 +1,6 @@
 package com.example.recipebook.b_RegisterToTheApp;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -24,6 +25,7 @@ import com.example.recipebook.R;
 import com.example.recipebook.Utils;
 import com.example.recipebook.c_Home.HomeActivity;
 import com.example.recipebook.databinding.ActivityRegisterBinding;
+import com.example.recipebook.f_Profile.ProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -43,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity implements LoginFragment
   FirebaseFirestore fireStore;
   SharedPreferences sharedPreferences;
   SharedPreferences.Editor editor;
+  AlertDialog loadingDialog;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -78,6 +81,11 @@ public class RegisterActivity extends AppCompatActivity implements LoginFragment
 
   @Override
   public void singInUser(HashMap<String, Object> information) {
+    loadingDialog = new AlertDialog.Builder(RegisterActivity.this)
+            .setView(Utils.createLoadingView(RegisterActivity.this,"Start Sing in..."))
+            .setCancelable(false)
+            .create();
+    loadingDialog.show();
     auth.signInWithEmailAndPassword(
             String.valueOf(information.get(Utils.USER_EMAIL)),
             String.valueOf(information.get(Utils.USER_PASSWORD)))
@@ -88,9 +96,11 @@ public class RegisterActivity extends AppCompatActivity implements LoginFragment
           String identifier = task.getResult().getUser().getUid();
           binding.registerFragment.setVisibility(View.INVISIBLE);
           binding.textWelcomeChef.setVisibility(View.VISIBLE);
+          loadingDialog.dismiss();
           startActivity(new Intent
                   (RegisterActivity.this, HomeActivity.class)
                   .putExtra(Utils.USER_IDENTIFIER,identifier));
+          finish();
         }else{
           Toast.makeText(RegisterActivity.this, "Check Your information is correct", Toast.LENGTH_SHORT).show();
         }
@@ -105,6 +115,11 @@ public class RegisterActivity extends AppCompatActivity implements LoginFragment
 
   @Override
   public void singUpUser(HashMap<String, Object> information) {
+    loadingDialog = new AlertDialog.Builder(RegisterActivity.this)
+            .setView(Utils.createLoadingView(RegisterActivity.this,"Start Sing up..."))
+            .setCancelable(false)
+            .create();
+    loadingDialog.show();
     auth.createUserWithEmailAndPassword
             (String.valueOf(information.get(Utils.USER_EMAIL))
             ,String.valueOf(information.get(Utils.USER_PASSWORD)))
@@ -112,7 +127,6 @@ public class RegisterActivity extends AppCompatActivity implements LoginFragment
       @Override
       public void onComplete(@NonNull Task<AuthResult> task) {
         if(task.isComplete() && task.isSuccessful()){
-
           String identifier = task.getResult().getUser().getUid();
           information.put(Utils.USER_IDENTIFIER,identifier);
           String image = (String)information.get(Utils.USER_IMAGE);
@@ -146,7 +160,7 @@ public class RegisterActivity extends AppCompatActivity implements LoginFragment
                                       binding.registerFragment.setVisibility(View.INVISIBLE);
                                       binding.textWelcomeChef.setText(String.format("Welcome %s", information.get(Utils.USER_Name)));
                                       binding.textWelcomeChef.setVisibility(View.VISIBLE);
-
+                                      loadingDialog.dismiss();
                                       startActivity(new Intent(RegisterActivity.this,
                                               HomeActivity.class).putExtra(Utils.USER_IDENTIFIER, identifier));
                                       finish();
