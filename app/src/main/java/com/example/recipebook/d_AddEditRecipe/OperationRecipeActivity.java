@@ -552,7 +552,7 @@ public class OperationRecipeActivity extends AppCompatActivity implements CardVi
                                                   public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()) {
                                                       fireStore.collection(Utils.USERS_COLLECTION)
-                                                              .document(recipe_category)
+                                                              .document(chef_id)
                                                               .collection(Utils.RECIPES_COLLECTION)
                                                               .document(recipe_id).update(recipe)
                                                               .addOnCompleteListener(new OnCompleteListener<Void>() {
