@@ -13,9 +13,9 @@ public class CloudinaryLib {
   public static void init(Context context) {
     if (!initialized) {
       Map config = new HashMap();
-      config.put("cloud_name", "dcswmxc9i");
-      config.put("api_key", "763453742235384");
-      config.put("api_secret", "5TCQFWlBdvJt-9ITJPIXii3-Mh8");
+      config.put("cloud_name", "######");
+      config.put("api_key", "######");
+      config.put("api_secret", "#####");
       MediaManager.init(context, config);
       initialized = true;
     }
