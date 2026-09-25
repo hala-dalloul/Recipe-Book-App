@@ -242,9 +242,7 @@ Before contributing, review the existing project structure and avoid committing 
 
 ## License
 
-No open-source license is currently defined for this repository.
-
-If this project is intended to accept and encourage external contributions or reuse, a suitable open-source license should be added explicitly.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Author
 
